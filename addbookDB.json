@@ -1,0 +1,30 @@
+{"AddresBookDB" :[
+    {   "Id" : 1,
+        "_FullName" : "Prathmesh vardam",
+        "_Address"  : "Parvati niwas",
+        "_phoneNumber" : 182119919,
+        "_City" : "Pune",
+        "_State" : "Maharshtra",
+        "_Zipcode" : 72191
+    }
+    ,
+    {   "Id" : 2,
+            "_FullName" : "Nishant vardam",
+            "_Address"  : "Sadan niwas",
+            "_phoneNumber" : 9372811,
+            "_City" : "Pune",
+            "_State" : "Maharshtra",
+            "_Zipcode" : 90291,
+        },
+        {   "Id" : 3,
+        "_FullName" : "Pranit vardam",
+        "_Address"  : "Alibaug niwas",
+        "_phoneNumber" : 89012912,
+        "_City" : "Pune",
+        "_State" : "Maharshtra",
+        "_Zipcode" : 878797
+    }
+    ]
+    
+    }
+   
