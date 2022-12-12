@@ -17,19 +17,19 @@ window.addEventListener('DOMContentLoaded',(event) => {
         }
     });
 
-    const phnumber = document.querySelector('#phnumber');
-    const phnumberError = document.querySelector('.phnumber-error');
-    phnumber.addEventListener('input',function(){
-        let phoneNumber = document.querySelector('#phnumber').value;
-        if (phnumber.value.length == 0) {
-            phnumberError.textContent = "";
+    const phonenumber = document.querySelector('#phonenumber');
+    const phonenumberError = document.querySelector('.phonenumber-error');
+    phonenumber.addEventListener('input',function(){
+        let phoneNumber = document.querySelector('#phonenumber').value;
+        if (phonenumber.value.length == 0) {
+            phonenumberError.textContent = "";
             return;
         }
         try {
             (new Contact()).phone = phoneNumber;
-            phnumberError.textContent = "";
+            phonenumberError.textContent = "";
         } catch (e) {
-            phnumberError.textContent = e;
+            phonenumberError.textContent = e;
         }
     });
 
@@ -56,6 +56,7 @@ const save = () => {
     try {
         let personContact = createContact();
         createAndUpdateStorage(personContact);
+        window.location.replace("AddressbookHomePage.html");
     } catch(e) {
         return;
     }
@@ -70,9 +71,9 @@ const createContact = () => {
     }
 
     try {
-        personContact._phone = getInputValueById('#phnumber');
+        personContact._phone = getInputValueById('#phonenumber');
     } catch (e) {
-        setTextValue('.phnumber-error',e);
+        setTextValue('.phonenumber-error',e);
     }
 
     try {
@@ -83,7 +84,7 @@ const createContact = () => {
 
     personContact._city = getInputValueById('#city');
     personContact._state = getInputValueById('#state');
-    personContact._zip = getInputValueById('#zipcode');
+    personContact._zip = getInputValueById('#zip');
     alert(personContact.toString());
     return personContact;
 }
@@ -95,11 +96,11 @@ const getInputValueById = (id) => {
 
 const resetForm = () => {
     setValue('#fullname','');
-    setValue('#phnumber','');
+    setValue('#phonenumber','');
     setValue('#address','');
     setValue('#city','Select City');
     setValue('#state','Select State');
-    setValue('#zipcode','');
+    setValue('#zip','');
 }
 
 const setValue = (id,value) => {
@@ -113,15 +114,12 @@ const setTextValue = (id,value) => {
 }
 
 function createAndUpdateStorage(personContact) {
-
     let contactList = JSON.parse(localStorage.getItem("ContactList"));
-
     if(contactList != undefined){
         contactList.push(personContact);
     } else {
         contactList = [personContact]
     }
-
     alert(contactList.toString());
     localStorage.setItem("ContactList",JSON.stringify(contactList));
 }
@@ -136,9 +134,9 @@ const checkForUpdate = () => {
 
 const setForm = () => {
     setValue('#fullname',contact._fullName);
-    setValue('#phnumber',contact._phone);
+    setValue('#phonenumber',contact._phone);
     setValue('#address',contact._address);
     setValue('#city',contact._city);
     setValue('#state',contact._state);
-    setValue('#zipcode',contact._zip);
+    setValue('#zip',contact._zip);
 }

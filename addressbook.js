@@ -1,32 +1,32 @@
 class Contact{
     get fullName(){
-        return this.fullName;
+        return this._fullName;
     }
 
     set fullName(fullName)
     {
-        let fullNameRegex = RegExp('^[A-Za-z\\s]+$')
+        let fullNameRegex = RegExp('^[A-Z]{1}[A-Za-z\\s]{2,}$')
         if(fullNameRegex.test(fullName))
-        this.fullName = fullName;
+        this._fullName = fullName;
         else
         throw 'Name is Invalid'
     }
 
 
     get address(){
-        return this.address;
+        return this._address;
     }
 
     set address(address)
     {
         let words = address.split(" ");
         if(words.length>1){
-            let addressRegex = RegExp('^[#.0-9a-zA-Z\s,-]+$');
+            let addressRegex = RegExp('^[#.0-9a-zA-Z\\s,-]+$');
             for(const word of words){
                 if(!addressRegex.test(word))
                 throw 'Address Invalid';
             }
-            this.address = address;
+            this._address = address;
         }
         else{
             throw 'Address Invalid';
@@ -34,31 +34,31 @@ class Contact{
     }
 
     get city(){
-        return this.city;
+        return this._city;
     }
 
     set city(city){
-      this.city= city;
+      this._city= city;
     }
 
     get state(){
-        return this.state;
+        return this._state;
     }
 
     set state(state){
-       this.state = state;
+       this._state = state;
     }
 
     get zip()
     {
-        return this.zip;
+        return this._zip;
     }
 
     set zip(zip)
     {
         let zipRegex = RegExp('^[0-9]{6,}$');
         if(zipRegex.test(zip)) {
-            this.zip = zip;
+            this._zip = zip;
         } else {
             throw 'Zip Invalid';
         }
@@ -66,7 +66,7 @@ class Contact{
 
     get phone()
     {
-        return this.phone;
+        return this._phone;
     }
 
     set phone(phone)
@@ -75,7 +75,7 @@ class Contact{
         let phoneRegex2 = RegExp('^[0-9]{2}[1-9][0-9]{9}$');
         let phoneRegex3 = RegExp('^[+][0-9]{2}[1-9][0-9]{9}$');
         if(phoneRegex1.test(phone) || phoneRegex2.test(phone) || phoneRegex3.test(phone)) {
-            this.phone = phone;
+            this._phone = phone;
         } else {
             throw 'Phone Number is Invalid';
         }
@@ -83,7 +83,7 @@ class Contact{
 
     toString()
     {
-        return "Full Name = "+this.fullName+ ", Address = "+this.address+", City = "+this.city+", State = "+this.state+", Zip = "+this.zip+", Phone = "+this.phone+", Email = "+this.email;
+        return "Full Name = "+this._fullName+ ", Address = "+this.address+", City = "+this.city+", State = "+this.state+", Zip = "+this.zip+", Phone = "+this.phone;
     }
 
 }

@@ -9,7 +9,7 @@
     }
     ,
     {   "Id" : 2,
-            "_FullName" : "Nishant vardam",
+            "_FullName" : "Nishant Kadam",
             "_Address"  : "Sadan niwas",
             "_phoneNumber" : 9372811,
             "_City" : "Pune",
@@ -17,7 +17,7 @@
             "_Zipcode" : 90291,
         },
         {   "Id" : 3,
-        "_FullName" : "Pranit vardam",
+        "_FullName" : "Pranit Waghmare",
         "_Address"  : "Alibaug niwas",
         "_phoneNumber" : 89012912,
         "_City" : "Pune",
